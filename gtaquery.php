@@ -35,7 +35,7 @@ if (!socket_write($sock, $query, strlen($query)))
 
 echo "Query sent!\n";
 
-//Now receive reply from server and print it
+//Receive reply from server
 if (socket_recv($sock, $reply, 1024, MSG_WAITALL) === FALSE)
 {
 	$errorcode = socket_last_error();
@@ -44,6 +44,7 @@ if (socket_recv($sock, $reply, 1024, MSG_WAITALL) === FALSE)
 	die("Could not receive data: [$errorcode] $errormsg \n");
 }
 
+//Process the reply into usable array of data
 $server = [];
 $data = explode("\\", $reply);
 for ($i = 0; $i < count($data); $i++) {
