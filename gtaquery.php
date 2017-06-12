@@ -1,5 +1,6 @@
 <?php
-//Spit errors
+
+//Hide errors
 error_reporting(~E_WARNING);
  
 $server = "1.2.3.4";
@@ -83,6 +84,7 @@ for ($i = 0; $i < count($data); $i++) {
     }
 }
 
+//Show the reply from server
 echo "Reply from server: \n";
 print_r($server);
 
